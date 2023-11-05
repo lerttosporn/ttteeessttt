@@ -1,0 +1,9 @@
+docker-compose up -d --build
+docker-compose exec app composer update
+
+docker-compose up
+
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan config:clear
+docker-compose exec app php artisan migrate
+docker-compose exec app php artisan migrate:rollback

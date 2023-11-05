@@ -1,0 +1,265 @@
+openapi: 3.0.3
+info:
+  title: Sample API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  - url: http://localhost:8800
+    description: Optional server description, e.g. Main (production) server
+  - url: http://staging-api.example.com
+    description: Optional server description, e.g. Internal staging server for testing
+paths:
+# court
+  /api/court/getAll:
+    get:
+      summary: Returns a list of courts.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200': # status code
+          description: A JSON array of attractions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/court/{id}:
+    get:
+      summary: Returns an court by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+  /api/court/update/{id}:    
+    put:
+      summary: Updates a court.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:               
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Updated
+  /api/court/delete/{id}:    
+    delete:
+      summary: Delete a court by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1       
+      responses:
+        '200':
+          description: OK
+  /api/court/put:
+    put:
+      summary: Updates a court.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  format: integer
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Updated
+# OTP
+  /api/otp/getAll:
+    get:
+      summary: Returns a list of courts.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200': # status code
+          description: A JSON array of attractions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/otp/{id}:
+    get:
+      summary: Returns an court by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+  /api/otp/update/{id}:    
+    put:
+      summary: Updates a court.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:               
+                rid:
+                  type: number
+                  format: integer
+                QR:
+                  type: number
+                  format: integer  
+                expire:
+                  type: string
+                  format: date-time  
+      responses:
+        '201':
+          description: Updated
+  /api/otp/delete/{id}:    
+    delete:
+      summary: Delete a court by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1       
+      responses:
+        '200':
+          description: OK
+  /api/otp/put:
+    put:
+      summary: Updates a court.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  format: integer
+                rid:
+                  type: number
+                  format: integer
+                QR:
+                  type: number
+                  format: integer  
+                expire:
+                  type: string
+                  format: date-time  
+      responses:
+        '201':
+          description: Updated
+# reserved
+  /api/reserved/getAll:
+    get:
+      summary: Returns a list of courts.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200': # status code
+          description: A JSON array of attractions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/reserved/get/{id}:
+    get:
+      summary: Returns an court by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+  /api/reserved/update/{id}:    
+    put:
+      summary: Updates a court.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:               
+                cid:
+                  type: number
+                  format: integer
+                start:
+                  type: string
+                  format: date-time  
+                end:
+                  type: string
+                  format: date-time      
+                genaratedKey:
+                  type: string  
+      responses:
+        '201':
+          description: Updated
+  /api/reserved/delete/{id}:    
+    delete:
+      summary: Delete a court by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1       
+      responses:
+        '200':
+          description: OK
+  /api/reserved/put:
+    put:
+      summary: Updates a court.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: number
+                  format: integer
+                cid:
+                  type: number
+                  format: integer
+                start:
+                  type: string
+                  format: date-time  
+                end:
+                  type: string
+                  format: date-time      
+                genaratedKey:
+                  type: string  
+      responses:
+        '201':
+          description: Updated
